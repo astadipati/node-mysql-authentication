@@ -33,9 +33,9 @@ router.get('/logout', function(req, res) {
 });
 
 function isLoggedIn(req, res, next) {
-	if (req.user && req.session){
+    if (req.user && req.session) {
         res.redirect('/home');
-		return;
+        return;
     }
     return next();
 }

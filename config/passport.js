@@ -46,23 +46,23 @@ passport.use('signup', new LocalStrategy({
     },
     function(req, username, password, done) {
 
-        DB.query("SELECT * FROM users WHERE username = ?",[username], function(err, rows) {
-                if (err)
-                    return done(err);
-                if (rows.length) {
-                    return done(null, false, req.flash('message', 'User Already Exists'));
-                } else {
-                    var user = {
-                        username: username,
-                        password: bCrypt.hashSync(password, null, null)
-                    };
+        DB.query("SELECT * FROM users WHERE username = ?", [username], function(err, rows) {
+            if (err)
+                return done(err);
+            if (rows.length) {
+                return done(null, false, req.flash('message', 'User Already Exists'));
+            } else {
+                var user = {
+                    username: username,
+                    password: bCrypt.hashSync(password, null, null)
+                };
 
-                    var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
+                var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
 
-                    DB.query(insertQuery,[user.username, user.password],function(err, rows) {
-                        user.userId = rows.insertId;
-                        return done(null, false, req.flash('message', 'New User Created'));
-                    });
-                }
-            });
+                DB.query(insertQuery, [user.username, user.password], function(err, rows) {
+                    user.userId = rows.insertId;
+                    return done(null, false, req.flash('message', 'New User Created'));
+                });
+            }
+        });
     }));
