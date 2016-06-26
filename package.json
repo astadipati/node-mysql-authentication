@@ -1,0 +1,33 @@
+{
+  "name": "node-mysql-authentication",
+  "version": "1.0.0",
+  "description": "Node Express authentication using Passport & MySQL",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codenirvana/node-mysql-authentication.git"
+  },
+  "keywords": [
+    "Express",
+    "authentication",
+    "Passport",
+    "MySQL"
+  ],
+  "author": "Udit Vasu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codenirvana/node-mysql-authentication/issues"
+  },
+  "homepage": "https://github.com/codenirvana/node-mysql-authentication#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.1",
+    "connect-flash": "^0.1.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}
